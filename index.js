@@ -22,13 +22,15 @@ function generateSecretNumber(){
     return `${firstDigit}${secondDigit}${thirdDigit}${fourthDigit}`;
 }
 
+let feedback = document.getElementById('feedback');
+
 function bullsandcows(guess , secretNumber){
     if(guess.length !== 4 || isNaN(guess)){
-        alert("Please enter a valid 4-digit number.");
+        feedback.textContent = "Please enter a valid 4-digit number.";
         return;
     }
     if(guess === secretNumber){
-        alert("Congratulations! You guessed the number.");
+        feedback.textContent = "Congratulations! You guessed the number.";
     } else {
         let bulls = 0;
         let cows = 0;
@@ -44,9 +46,9 @@ function bullsandcows(guess , secretNumber){
                 }
             }
         }
-        alert(`Bulls: ${bulls}, Cows: ${cows}`);
-        input.value = ``;
+        feedback.textContent = `Bulls: ${bulls}, Cows: ${cows}`;
     }
+    input.value = ``;
 }
 
 const secretNumber = generateSecretNumber();
