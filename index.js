@@ -160,7 +160,7 @@ function bullsandcows(guess, secretNumber) {
     if (cnt === 0) {
 
         feedback.innerHTML =
-            `<p>Game Over! The secret number was ${secretNumber}.</p>`;
+            `<p>You lost🤡 The secret number was ${secretNumber}.</p>`;
 
         document.querySelector('.bulls-and-cows').innerHTML +=
             `<p>The secret number was ${secretNumber}.</p>`;
