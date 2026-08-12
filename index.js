@@ -128,10 +128,10 @@ function bullsandcows(guess, secretNumber) {
     if (guess === secretNumber) {
 
         feedback.textContent =
-            "Congratulations! You guessed the number.";
+            "Congratulations🥳 You guessed the number.";
 
         document.querySelector('.bulls-and-cows').innerHTML +=
-            `<p>${guess} - Bulls: 4, Cows: 0</p>`;
+            `<p>${guess} - 🐂: 4, 🐄: 0</p>`;
 
         gameOver = true;
 
@@ -147,13 +147,13 @@ function bullsandcows(guess, secretNumber) {
     recordLog.style.display = 'inline-block';
 
     feedback.textContent =
-        `${guess} - Bulls: ${bulls}, Cows: ${cows}, Tries left: ${cnt}`;
+        `${guess} - 🐂: ${bulls}, 🐄: ${cows}, Tries left: ${cnt}`;
 
     triesLeft.innerHTML =
         `<p>Tries Left: ${cnt}</p>`;
 
     document.querySelector('.bulls-and-cows').innerHTML +=
-        `<p>${guess} - Bulls: ${bulls}, Cows: ${cows}</p>`;
+        `<p>${guess} - 🐂: ${bulls}, 🐄: ${cows}</p>`;
 
 
     // Game over
@@ -196,7 +196,7 @@ giveUpButton.addEventListener('click', () => {
     }
 
     feedback.innerHTML =
-        `<p>You gave up! The secret number was ${secretNumber}.</p>`;
+        `<p>You gave up😢 The secret number was ${secretNumber}.</p>`;
 
     input.value = "";
 
