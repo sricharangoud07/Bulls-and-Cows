@@ -41,7 +41,7 @@ function restartGame(){
 
 
 function bullsandcows(guess , secretNumber){
-    recordLog.style.display = 'block';
+    recordLog.style.display = 'inline-block';
     if(cnt === 0){
         feedback.innerHTML = `<p>Game Over! The secret number was ${secretNumber}.</p>`;
         input.value = ``;
