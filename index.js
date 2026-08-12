@@ -44,6 +44,7 @@ function bullsandcows(guess , secretNumber){
     recordLog.style.display = 'inline-block';
     if(cnt === 0){
         feedback.innerHTML = `<p>Game Over! The secret number was ${secretNumber}.</p>`;
+        document.querySelector('.bulls-and-cows').innerHTML += `<p>The secret number was ${secretNumber}.</p>`;
         input.value = ``;
         restartGame();
         return;
@@ -55,6 +56,8 @@ function bullsandcows(guess , secretNumber){
     }
     if(guess === secretNumber){
         feedback.textContent = "Congratulations! You guessed the number.";
+        triesLeft.innerHTML = `<p>Tries Left: ${cnt}</p>`;
+        document.querySelector('.bulls-and-cows').innerHTML += `<p>${guess} - Bulls: ${bulls}!!!</p>`;
         restartGame();
     } else {
         cnt--;
@@ -73,7 +76,7 @@ function bullsandcows(guess , secretNumber){
             }
         }
         feedback.textContent = `${guess} - Bulls: ${bulls}, Cows: ${cows} , Tries left: ${cnt}`;
-        triesLeft.innerHTML = `<p>Tries Left: ${cnt}</p>`
+        triesLeft.innerHTML = `<p>Tries Left: ${cnt}</p>`;
         document.querySelector('.bulls-and-cows').innerHTML += `<p>${guess} - Bulls: ${bulls}, Cows: ${cows}</p>`;
     }
     input.value = ``;
