@@ -16,15 +16,15 @@ function generateSecretNumber(){
         firstDigit = randomDigitGenerator();
     }
     let secondDigit = randomDigitGenerator();
-    while(secondDigit === firstDigit && Math.abs(firstDigit - secondDigit) < 4){
+    while(secondDigit === firstDigit && Math.abs(firstDigit - secondDigit) < 2){
         secondDigit = randomDigitGenerator();
     }
     let thirdDigit = randomDigitGenerator();
-    while(thirdDigit === firstDigit || thirdDigit === secondDigit && Math.abs(thirdDigit - secondDigit) < 4){
+    while(thirdDigit === firstDigit || thirdDigit === secondDigit && Math.abs(thirdDigit - secondDigit) < 2){
         thirdDigit = randomDigitGenerator();
     }
     let fourthDigit = randomDigitGenerator();
-    while(fourthDigit === firstDigit || fourthDigit === secondDigit || fourthDigit === thirdDigit && Math.abs(fourthDigit - thirdDigit) < 4){
+    while(fourthDigit === firstDigit || fourthDigit === secondDigit || fourthDigit === thirdDigit && Math.abs(fourthDigit - thirdDigit) < 2){
         fourthDigit = randomDigitGenerator();
     }
     return `${firstDigit}${secondDigit}${thirdDigit}${fourthDigit}`;
