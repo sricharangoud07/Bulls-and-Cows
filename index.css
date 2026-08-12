@@ -53,6 +53,7 @@ button:hover{
     left: 0;
 }
 .record-log {
+    display: none;
     flex: 3;
     position: relative;
     top: 0;

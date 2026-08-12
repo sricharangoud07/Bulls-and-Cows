@@ -2,7 +2,8 @@ let feedback = document.getElementById('feedback');
 let submitButton = document.getElementById('submitGuess');
 let input = document.getElementById('guessInput');
 let giveUpButton = document.getElementById('giveUp');
-let triesLeft = document.querySelector('.tries-left')
+let triesLeft = document.querySelector('.tries-left');
+let recordLog = document.querySelector('.record-log');
 
 
 function randomDigitGenerator(){
@@ -40,6 +41,7 @@ function restartGame(){
 
 
 function bullsandcows(guess , secretNumber){
+    recordLog.style.display = 'block';
     if(cnt === 0){
         feedback.innerHTML = `<p>Game Over! The secret number was ${secretNumber}.</p>`;
         input.value = ``;
@@ -78,7 +80,6 @@ function bullsandcows(guess , secretNumber){
 }
 
 const secretNumber = generateSecretNumber();
-console.log(secretNumber);
 
 
 let cnt = 10;
