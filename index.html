@@ -10,9 +10,20 @@
     <h1>
         Bulls and Cows Game
     </h1>
-    <input type="text" id="guessInput" placeholder="Enter your guess (4 digits)">
-    <button id="submitGuess">Submit Guess</button>
-    <div id="feedback"></div>
+    <div class="game-wrapper">
+        <div class="game-container">
+            <input type="text" id="guessInput" placeholder="Enter your guess (4 digits)">
+            <button id="submitGuess">Submit Guess</button>
+            <button id="giveUp">Give Up</button>
+            <div id="feedback"></div>
+        </div>
+        <div class="record-log">
+                    <div class="tries-left"></div>
+                    <div class="bulls-and-cows"></div>
+        </div>
+
+    </div>
+    
     <script src="index.js"></script>
 </body>
 </html>

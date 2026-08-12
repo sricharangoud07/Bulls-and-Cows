@@ -1,3 +1,10 @@
+let feedback = document.getElementById('feedback');
+let submitButton = document.getElementById('submitGuess');
+let input = document.getElementById('guessInput');
+let giveUpButton = document.getElementById('giveUp');
+let triesLeft = document.querySelector('.tries-left')
+
+
 function randomDigitGenerator(){
     return Math.floor(Math.random()*10);
 }
@@ -22,16 +29,33 @@ function generateSecretNumber(){
     return `${firstDigit}${secondDigit}${thirdDigit}${fourthDigit}`;
 }
 
-let feedback = document.getElementById('feedback');
+function restartGame(){
+    guessInput.style.display = 'none';
+    giveUpButton.style.display = 'none';
+    submitButton.innerHTML = "Restart Game";
+    submitButton.addEventListener('click', () => {
+        window.location.reload();
+    });
+}
+
 
 function bullsandcows(guess , secretNumber){
+    if(cnt === 0){
+        feedback.innerHTML = `<p>Game Over! The secret number was ${secretNumber}.</p>`;
+        input.value = ``;
+        restartGame();
+        return;
+    }
     if(guess.length !== 4 || isNaN(guess)){
         feedback.textContent = "Please enter a valid 4-digit number.";
+        input.value = ``;
         return;
     }
     if(guess === secretNumber){
         feedback.textContent = "Congratulations! You guessed the number.";
+        restartGame();
     } else {
+        cnt--;
         let bulls = 0;
         let cows = 0;
         for(let i = 0 ; i < 4 ; i++){
@@ -46,7 +70,9 @@ function bullsandcows(guess , secretNumber){
                 }
             }
         }
-        feedback.textContent = `Bulls: ${bulls}, Cows: ${cows}`;
+        feedback.textContent = `${guess} - Bulls: ${bulls}, Cows: ${cows} , Tries left: ${cnt}`;
+        triesLeft.innerHTML = `<p>Tries Left: ${cnt}</p>`
+        document.querySelector('.bulls-and-cows').innerHTML += `<p>${guess} - Bulls: ${bulls}, Cows: ${cows}</p>`;
     }
     input.value = ``;
 }
@@ -55,10 +81,13 @@ const secretNumber = generateSecretNumber();
 console.log(secretNumber);
 
 
-let submitButton = document.getElementById('submitGuess');
-let input = document.getElementById('guessInput');
-
+let cnt = 10;
 submitButton.addEventListener('click',() => bullsandcows(input.value, secretNumber));
+giveUpButton.addEventListener('click', () => {
+    feedback.innerHTML = `<p>You gave up! The secret number was ${secretNumber}.</p>`;
+    input.value = ``;
+    restartGame();
+});
 input.addEventListener('keypress', (event) => {
     if(event.key === 'Enter'){
         bullsandcows(input.value, secretNumber);
