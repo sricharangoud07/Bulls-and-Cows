@@ -17,5 +17,11 @@
     <p>4. <b>Cow🐄</b>: Correct digit in the wrong position.</p>
     <p>5. The player gets <b>10 attempts</b> and <b>wins by guessing all 4 digits correctly.</b> Invalid guesses don't count as attempts.</p>
     <button id="start-game">Start Game</button>
+    <script>
+        startGameButton = document.getElementById('start-game');
+        startGameButton.addEventListener('click' , () => {
+            window.location.href = 'mainGame.html'; 
+        });
+    </script>
 </body>
 </html>
