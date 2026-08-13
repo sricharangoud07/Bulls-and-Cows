@@ -154,8 +154,14 @@ function bullsandcows(guess, secretNumber) {
 
 
     // Correct answer
+    clearInterval(timer);
+    
+    // Wrong answer
+    cnt--;
+    recordLog.style.display = 'inline-block';
+    triesLeft.innerHTML = `<p>Tries Left: ${cnt}</p>`;
+
     if (guess === secretNumber) {
-        clearInterval(timer);
         feedback.textContent =
             "Congratulations🥳 You guessed the number.";
 
@@ -168,10 +174,6 @@ function bullsandcows(guess, secretNumber) {
 
         return;
     }
-    clearInterval(timer);
-    
-    // Wrong answer
-    cnt--;
 
     // Game over
     if (cnt === 0) {
@@ -191,11 +193,9 @@ function bullsandcows(guess, secretNumber) {
     
     startTimer();
     
-    recordLog.style.display = 'inline-block';
 
     feedback.textContent = `${guess} - 🐂: ${bulls}, 🐄: ${cows}, Tries left: ${cnt}`;
 
-    triesLeft.innerHTML = `<p>Tries Left: ${cnt}</p>`;
 
     document.querySelector('.bulls-and-cows').innerHTML +=`<p>${guess} - 🐂: ${bulls}, 🐄: ${cows}</p>`;
 
