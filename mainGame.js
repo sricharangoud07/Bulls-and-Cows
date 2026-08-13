@@ -95,8 +95,6 @@ function startTimer() {
 
 
 function bullsandcows(guess, secretNumber) {
-    clearInterval(timer);
-    startTimer();
     if (gameOver) {
         return;
     }
@@ -170,7 +168,8 @@ function bullsandcows(guess, secretNumber) {
 
         return;
     }
-
+    clearInterval(timer);
+    startTimer();
 
     // Wrong answer
     cnt--;
