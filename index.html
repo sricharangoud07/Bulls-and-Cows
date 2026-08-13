@@ -19,17 +19,17 @@
     <h1>
         🐂Bulls & 🐄Cows
     </h1>
-    <button id="game1">Untimed Game🤔</button>
-    <button id="game2">Timed Game⏱️</button>
+    <button id="unrated">Unrated</button>
+    <button id="rated">Rated</button>
     <script>
-        game1Button = document.getElementById('game1');
-        game1Button.addEventListener('click', () => {
-            window.location.href = 'game1Rules.html';
+        unratedButton = document.getElementById('unrated');
+        unratedButton.addEventListener('click', () => {
+            window.location.href = 'Unrated/unrated.html';
         });
 
-        game2Button = document.getElementById('game2');
-        game2Button.addEventListener('click', () => {
-            window.location.href = 'game2Rules.html';
+        ratedButton = document.getElementById('rated');
+        ratedButton.addEventListener('click', () => {
+            window.location.href = 'Rated/rated.html';
         });
     </script>
 </body>
