@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐂Bulls & 🐄Cows</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="game2.css">
+</head>
+<body>
+    <h1>
+        🐂Bulls & 🐄Cows
+    </h1>
+    <div class="game-wrapper">
+        <div class="game-container">
+            <div class="timer">Timer: 01:00</div>
+            <input type="text" id="guessInput" placeholder="Enter your guess (4 digits)">
+            <button id="submitGuess">Submit Guess</button>
+            <button id="giveUp">Give Up</button>
+            <div id="feedback"></div>
+        </div>
+        <div class="record-log">
+                    <div class="tries-left"></div>
+                    <div class="bulls-and-cows"></div>
+        </div>
+
+    </div>
+    
+    <script src="game2.js"></script>
+</body>
+</html>
