@@ -56,7 +56,6 @@ function generateSecretNumber() {
 function restartGame() {
 
     input.style.display = 'none';
-    giveUpButton.style.display = 'none';
 
     submitButton.innerHTML = "Restart Game";
 
