@@ -4,8 +4,10 @@ let input = document.getElementById('guessInput');
 let giveUpButton = document.getElementById('giveUp');
 let triesLeft = document.querySelector('.tries-left');
 let recordLog = document.querySelector('.record-log');
+let timerElement = document.querySelector('.timer');
 
 let cnt = 10;
+let timer;
 let gameOver = false;
 
 
@@ -62,6 +64,35 @@ function restartGame() {
         window.location.reload();
     });
 }
+
+function updateTimer(minuts, seconds){
+    let m = String(minuts).padStart(2, '0');
+    let s = String(seconds).padStart(2, '0');
+    timerElement.innerHTML = `<p>Timer: ${m}:${s}</p>`;
+}
+
+function startTimer() {
+    let minuts = 1;
+    let seconds = 0;
+    updateTimer(minuts , seconds);
+    timer = setInterval(() => {
+        if (seconds === 0) {
+            if (minuts === 0) {
+                clearInterval(timer);
+                feedback.innerHTML = `<p>Time's up! You lost🤡 The secret number was ${secretNumber}.</p>`;
+                gameOver = true;
+                restartGame();
+                return;
+            }
+            minuts--;
+            seconds = 59;
+        }else {
+            seconds--;
+        }
+        updateTimer(minuts, seconds);
+    },1000);
+}
+
 
 function bullsandcows(guess, secretNumber) {
     if (gameOver) {
@@ -121,24 +152,26 @@ function bullsandcows(guess, secretNumber) {
         }
     }
 
-    recordLog.style.display = 'inline-block';
-    
+
     // Correct answer
+    clearInterval(timer);
     
     // Wrong answer
     cnt--;
+    recordLog.style.display = 'inline-block';
     triesLeft.innerHTML = `<p>Tries Left: ${cnt}</p>`;
+
     if (guess === secretNumber) {
         feedback.textContent =
-        "Congratulations🥳 You guessed the number.";
-        
+            "Congratulations🥳 You guessed the number.";
+
         document.querySelector('.bulls-and-cows').innerHTML +=
-        `<p>${guess} - 🐂: 4, 🐄: 0</p>`;
+            `<p>${guess} - 🐂: 4, 🐄: 0</p>`;
 
         gameOver = true;
-        
+
         restartGame();
-        
+
         return;
     }
 
@@ -152,10 +185,13 @@ function bullsandcows(guess, secretNumber) {
         `<p>The secret number was ${secretNumber}.</p>`;
         
         gameOver = true;
+        clearInterval(timer);
         restartGame();
         
         return;
     }
+    
+    startTimer();
     
 
     feedback.textContent = `${guess} - 🐂: ${bulls}, 🐄: ${cows}, Tries left: ${cnt}`;
@@ -180,6 +216,7 @@ submitButton.addEventListener('click', () => {
 
 
 giveUpButton.addEventListener('click', () => {
+    clearInterval(timer);
     if (gameOver) {
         return;
     }
