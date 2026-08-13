@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulls🐂 & Cows🐄</title>
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+    <h1>
+        🐂Bulls & 🐄Cows
+    </h1>
+    <button id="game1">Untimed Game</button>
+    <button id="game2">Timed Game</button>
+    <script>
+        game1Button = document.getElementById('game1');
+        game1Button.addEventListener('click', () => {
+            window.location.href = 'game1Rules.html';
+        });
+
+        game2Button = document.getElementById('game2');
+        game2Button.addEventListener('click', () => {
+            window.location.href = 'game2Rules.html';
+        });
+    </script>
+</body>
+</html>
