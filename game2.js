@@ -218,6 +218,7 @@ submitButton.addEventListener('click', () => {
     bullsandcows(input.value, secretNumber);
 
 });
+startTimer()
 
 
 giveUpButton.addEventListener('click', () => {
