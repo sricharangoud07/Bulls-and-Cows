@@ -63,6 +63,12 @@ function restartGame() {
     submitButton.addEventListener('click', () => {
         window.location.reload();
     });
+
+    giveUpButton.innerHTML = 'Return Home';
+
+    giveUpButton.addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
 }
 
 function updateTimer(minuts, seconds){

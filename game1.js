@@ -54,12 +54,17 @@ function generateSecretNumber() {
 function restartGame() {
 
     input.style.display = 'none';
-    giveUpButton.style.display = 'none';
-
+    
     submitButton.innerHTML = "Restart Game";
-
+    
     submitButton.addEventListener('click', () => {
         window.location.reload();
+    });
+    
+    giveUpButton.innerHTML = 'Return Home';
+
+    giveUpButton.addEventListener('click', () => {
+        window.location.href = 'index.html';
     });
 }
 
