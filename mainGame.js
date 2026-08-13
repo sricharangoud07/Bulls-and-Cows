@@ -95,6 +95,7 @@ function startTimer() {
 
 
 function bullsandcows(guess, secretNumber) {
+    clearInterval(timer);
     startTimer();
     if (gameOver) {
         return;
