@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulls🐂 & Cows🐄</title>
+    <link rel="stylesheet" href="../global.css">
+    <style>
+        button{
+            margin: 10px;
+            margin-top: 20px;
+            width: 200px;
+            height: 50px;
+            font-size : 20px;
+        }
+
+        table {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%; /* Controls how much space the entire table takes up */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #4a4a4a; /* Darker border color for a visible grid */
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: hsl(243, 86%, 5%);
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: hsl(243, 86%, 10%);
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: hsl(243, 86%, 12%);
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        🐂Bulls & 🐄Cows
+    </h1>
+    <h3>Instructions</h3>
+    <p>1. Choose a <b>class</b> based on your preferred difficulty level.</p>
+    <p>2. Guess the <b>4-digit secret number</b> with no repeated digits or leading 0.</p>
+    <p>3. <b>Bull</b>: correct digit in the correct position; <b>Cow</b>: correct digit in the wrong position.</p>
+    <p>4. Complete the game within the <b>attempt and time limit</b> of your selected class.</p>
+    <p>5. <b>Earn points based on your selected class</b> and try to achieve the highest score. 🏆</p>
+    <table>
+        <tr>
+            <th>Class</th>
+            <th>Attempts</th>
+            <th>Time</th>
+            <th>Points</th>
+        </tr>
+        <tr>
+            <td>Novice</td>
+            <td>15</td>
+            <td>02:00</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>Beginner</td>
+            <td>12</td>
+            <td>01:30</td>
+            <td>40</td>
+        </tr>
+        <tr>
+            <td>Intermediate</td>
+            <td>10</td>
+            <td>01:00</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>Advanced</td>
+            <td>8</td>
+            <td>01:00</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Expert</td>
+            <td>7</td>
+            <td>00:45</td>
+            <td>100</td>
+        </tr>
+    </table>
+    <button id="getStarted">Get Started</button>
+    <script>
+        getStartedButton = document.getElementById('getStarted');
+        getStartedButton.addEventListener('click', () => {
+            window.location.href = 'gameModes.html';
+        });
+    </script>
+</body>
+</html>
