@@ -169,39 +169,35 @@ function bullsandcows(guess, secretNumber) {
         return;
     }
     clearInterval(timer);
-    startTimer();
-
+    
     // Wrong answer
     cnt--;
 
-    recordLog.style.display = 'inline-block';
-
-    feedback.textContent =
-        `${guess} - 🐂: ${bulls}, 🐄: ${cows}, Tries left: ${cnt}`;
-
-    triesLeft.innerHTML =
-        `<p>Tries Left: ${cnt}</p>`;
-
-    document.querySelector('.bulls-and-cows').innerHTML +=
-        `<p>${guess} - 🐂: ${bulls}, 🐄: ${cows}</p>`;
-
-
     // Game over
     if (cnt === 0) {
-
+        
         feedback.innerHTML =
-            `<p>You lost🤡 The secret number was ${secretNumber}.</p>`;
-
+        `<p>You lost🤡 The secret number was ${secretNumber}.</p>`;
+        
         document.querySelector('.bulls-and-cows').innerHTML +=
-            `<p>The secret number was ${secretNumber}.</p>`;
-
+        `<p>The secret number was ${secretNumber}.</p>`;
+        
         gameOver = true;
-
+        clearInterval(timer);
         restartGame();
-
+        
         return;
     }
+    
+    startTimer();
+    
+    recordLog.style.display = 'inline-block';
 
+    feedback.textContent = `${guess} - 🐂: ${bulls}, 🐄: ${cows}, Tries left: ${cnt}`;
+
+    triesLeft.innerHTML = `<p>Tries Left: ${cnt}</p>`;
+
+    document.querySelector('.bulls-and-cows').innerHTML +=`<p>${guess} - 🐂: ${bulls}, 🐄: ${cows}</p>`;
 
     input.value = "";
 }
@@ -220,7 +216,7 @@ submitButton.addEventListener('click', () => {
 
 
 giveUpButton.addEventListener('click', () => {
-
+    clearInterval(timer);
     if (gameOver) {
         return;
     }
