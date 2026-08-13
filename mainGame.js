@@ -4,8 +4,10 @@ let input = document.getElementById('guessInput');
 let giveUpButton = document.getElementById('giveUp');
 let triesLeft = document.querySelector('.tries-left');
 let recordLog = document.querySelector('.record-log');
+let timerElement = document.querySelector('.timer');
 
 let cnt = 10;
+let timer;
 let gameOver = false;
 
 
@@ -63,9 +65,37 @@ function restartGame() {
     });
 }
 
+function updateTimer(minuts, seconds){
+    let m = String(minuts).padStart(2, '0');
+    let s = String(seconds).padStart(2, '0');
+    timerElement.innerHTML = `<p>Timer: ${m}:${s}</p>`;
+}
+
+function startTimer() {
+    let minuts = 1;
+    let seconds = 0;
+    updateTimer(minuts , seconds);
+    timer = setInterval(() => {
+        if (seconds === 0) {
+            if (minuts === 0) {
+                clearInterval(timer);
+                feedback.innerHTML = `<p>Time's up! You lost🤡 The secret number was ${secretNumber}.</p>`;
+                gameOver = true;
+                restartGame();
+                return;
+            }
+            minuts--;
+            seconds = 59;
+        }else {
+            seconds--;
+        }
+        updateTimer(minuts, seconds);
+    },1000);
+}
+
 
 function bullsandcows(guess, secretNumber) {
-
+    startTimer();
     if (gameOver) {
         return;
     }
@@ -126,7 +156,7 @@ function bullsandcows(guess, secretNumber) {
 
     // Correct answer
     if (guess === secretNumber) {
-
+        clearInterval(timer);
         feedback.textContent =
             "Congratulations🥳 You guessed the number.";
 
