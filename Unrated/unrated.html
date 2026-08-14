@@ -21,18 +21,6 @@
     </h1>
     <button id="game1">Untimed Game🤔</button>
     <button id="game2">Timed Game⏱️</button>
-    <script>
-        game1Button = document.getElementById('game1');
-        game1Button.addEventListener('click', () => {
-            localStorage.setItem('gameMode', 'untimed');
-            window.location.href = 'gameRules.html';
-        });
-
-        game2Button = document.getElementById('game2');
-        game2Button.addEventListener('click', () => {
-            localStorage.setItem('gameMode', 'timed');
-            window.location.href = 'gameRules.html';
-        });
-    </script>
+    <script src="unrated.js"></script>
 </body>
 </html>
