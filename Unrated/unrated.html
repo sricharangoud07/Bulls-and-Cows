@@ -24,12 +24,14 @@
     <script>
         game1Button = document.getElementById('game1');
         game1Button.addEventListener('click', () => {
-            window.location.href = 'game1Rules.html';
+            localStorage.setItem('gameMode', 'untimed');
+            window.location.href = 'gameRules.html';
         });
 
         game2Button = document.getElementById('game2');
         game2Button.addEventListener('click', () => {
-            window.location.href = 'game2Rules.html';
+            localStorage.setItem('gameMode', 'timed');
+            window.location.href = 'gameRules.html';
         });
     </script>
 </body>
