@@ -21,7 +21,8 @@
     <script>
         startGameButton = document.getElementById('start-game');
         startGameButton.addEventListener('click' , () => {
-            window.location.href = 'game2.html'; 
+            localStorage.setItem('gameMode', 'timed');
+            window.location.href = 'game.html'; 
         });
     </script>
 </body>

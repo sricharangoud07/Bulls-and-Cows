@@ -9,6 +9,10 @@ let timerElement = document.querySelector('.timer');
 let cnt = 10;
 let timer;
 let gameOver = false;
+let gameMode = localStorage.getItem('gameMode');
+if(gameMode === 'untimed'){
+    timerElement.style.display = 'none';
+}
 
 
 function randomDigitGenerator() {
@@ -159,7 +163,7 @@ function bullsandcows(guess, secretNumber) {
 
 
     // Correct answer
-    clearInterval(timer);
+    if(gameMode === 'timed') clearInterval(timer);
     
     // Wrong answer
     cnt--;
@@ -190,13 +194,13 @@ function bullsandcows(guess, secretNumber) {
         `<p>The secret number was ${secretNumber}.</p>`;
         
         gameOver = true;
-        clearInterval(timer);
+        if(gameMode === 'timed') clearInterval(timer);
         restartGame();
         
         return;
     }
     
-    startTimer();
+    if(gameMode === 'timed') startTimer();
     
 
     feedback.textContent = `${guess} - 🐂: ${bulls}, 🐄: ${cows}, Tries left: ${cnt}`;
@@ -218,11 +222,11 @@ submitButton.addEventListener('click', () => {
     bullsandcows(input.value, secretNumber);
 
 });
-startTimer()
+if(gameMode === 'timed') startTimer();
 
 
 giveUpButton.addEventListener('click', () => {
-    clearInterval(timer);
+    if(gameMode === 'timed') clearInterval(timer);
     if (gameOver) {
         return;
     }
