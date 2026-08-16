@@ -15,7 +15,7 @@ if(gameType === 'easy'){
 }else if(gameType === 'hard'){
     cnt = 10;
 }else if(gameType === 'veryHard'){
-    cnt = 8;
+    cnt = 7;
 }else if(gameType === 'expert'){
     cnt = 7;
 }
@@ -103,7 +103,7 @@ function startTimer() {
         seconds = 0;
     }else if(gameType === 'veryHard'){
         minuts = 0;
-        seconds = 45;
+        seconds = 50;
     }else if(gameType === 'expert'){
         minuts = 0;
         seconds = 45;
