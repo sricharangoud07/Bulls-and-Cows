@@ -1,0 +1,26 @@
+{
+  "name": "bulls_and_cows",
+  "version": "1.0.0",
+  "description": "🐂 Bulls and Cows",
+  "main": "register.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sricharangoud07/Bulls-and-Cows.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sricharangoud07/Bulls-and-Cows/issues"
+  },
+  "homepage": "https://github.com/sricharangoud07/Bulls-and-Cows#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.9.2"
+  }
+}

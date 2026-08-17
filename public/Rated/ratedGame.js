@@ -7,7 +7,7 @@ let recordLog = document.querySelector('.record-log');
 let timerElement = document.querySelector('.timer');
 let gameType = localStorage.getItem('gameType');
 
-let cnt;
+let cnt , points;
 if(gameType === 'easy'){
     cnt = 15;
 }else if(gameType === 'medium'){
@@ -116,6 +116,18 @@ function startTimer() {
                 feedback.innerHTML = `<p>Time's up! You lost🤡 The secret number was ${secretNumber}.</p>`;
                 gameOver = true;
                 restartGame();
+                fetch('/game/result', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        difficulty: gameType,
+                        won: false,
+                    })
+                })
+                .then(response => response.json())
+                .then(data => console.log(data));
                 return;
             }
             minuts--;
@@ -165,6 +177,7 @@ function bullsandcows(guess, secretNumber) {
 
         input.value = "";
 
+
         return;
     }
 
@@ -205,6 +218,18 @@ function bullsandcows(guess, secretNumber) {
         gameOver = true;
 
         restartGame();
+        fetch('/game/result', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                    difficulty: gameType,
+                    won: true,
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data));
 
         return;
     }
@@ -221,6 +246,18 @@ function bullsandcows(guess, secretNumber) {
         gameOver = true;
         clearInterval(timer);
         restartGame();
+        fetch('/game/result', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                difficulty: gameType,
+                won: false,
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data));
         
         return;
     }
@@ -262,6 +299,17 @@ giveUpButton.addEventListener('click', () => {
     input.value = "";
 
     gameOver = true;
+
+    fetch('/game/result', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            difficulty: gameType,
+            won: false,
+        })
+    });
 
     restartGame();
 

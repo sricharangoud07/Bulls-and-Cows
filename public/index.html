@@ -19,18 +19,22 @@
     <h1>
         🐂Bulls & 🐄Cows
     </h1>
+    <div id="loggedOut">
+        <a href="/Auth/logIn.html">Login</a>
+        <a href="/Auth/register.html">Register</a>
+    </div>
+
+    <div id="loggedIn">
+        <h2 id="welcome"></h2>
+        <p id="level"></p>
+        <p id="points"></p>
+        <p id="gamesPlayed"></p>
+        <p id="gamesWon"></p>
+
+        <button id="logoutBtn">Logout</button>
+    </div>
     <button id="unrated">Unrated</button>
     <button id="rated">Rated</button>
-    <script>
-        unratedButton = document.getElementById('unrated');
-        unratedButton.addEventListener('click', () => {
-            window.location.href = 'Unrated/unrated.html';
-        });
-
-        ratedButton = document.getElementById('rated');
-        ratedButton.addEventListener('click', () => {
-            window.location.href = 'Rated/rated.html';
-        });
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
