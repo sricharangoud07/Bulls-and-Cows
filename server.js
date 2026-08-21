@@ -7,15 +7,20 @@ const session = require('express-session');
 const path = require('path');
 const Game = require('./models/Game.js');
 const User = require('./models/User.js');
+const MongoStore = require('connect-mongo').default;
 
 const PORT = 3000;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname , 'public')));
 app.use(session({
-    secret: 'your-secret-key',
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URI
+    })
 }));
 
 
