@@ -3,13 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login | Bulls & Cows</title>
     <link rel="stylesheet" href="../global.css">
 </head>
+
 <body>
-    <input id="userId-js" type="text" placeholder="User ID">
-    <input id="password-js" type="password" placeholder="Password">
-    <button id="SubmitBtn">Login</button>
+
+    <main class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>🐂 Bulls & Cows 🐄</h1>
+            <p class="auth-subtitle">Welcome back</p>
+
+            <div class="auth-form">
+
+                <input
+                    id="userId-js"
+                    type="text"
+                    placeholder="User ID"
+                    autocomplete="username"
+                >
+
+                <input
+                    id="password-js"
+                    type="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                >
+
+                <button id="SubmitBtn">Login</button>
+
+            </div>
+
+            <div class="auth-footer">
+                <p>Don't have an account?</p>
+                <a href="register.html">Create an account</a>
+            </div>
+
+        </div>
+
+    </main>
+
     <script src="login.js"></script>
+
 </body>
 </html>

@@ -206,7 +206,13 @@ function bullsandcows(guess, secretNumber) {
     feedback.textContent = `${guess} - 🐂: ${bulls}, 🐄: ${cows}, Tries left: ${cnt}`;
 
 
-    document.querySelector('.bulls-and-cows').innerHTML +=`<p>${guess} - 🐂: ${bulls}, 🐄: ${cows}</p>`;
+    document.querySelector('.bulls-and-cows').innerHTML += `
+    <div class="guess-row">
+        <span class="guess-number">${guess}</span>
+        <span>🐂 ${bulls}</span>
+        <span>🐄 ${cows}</span>
+    </div>
+`;
 
     input.value = "";
 }
@@ -241,6 +247,30 @@ giveUpButton.addEventListener('click', () => {
     restartGame();
 
 });
+
+
+
+
+async function loadUser() {
+
+    const response = await fetch('/me');
+    const loggedOut = document.getElementById('loggedOut')
+    const loggedIn = document.getElementById('loggedIn');
+
+    
+    const data = await response.json();
+    
+    if (!data.loggedIn) {
+        loggedOut.style.display = 'block';
+        loggedIn.style.display = 'none';
+        return;
+    }
+    loggedOut.style.display = 'none';
+    loggedIn.style.display = 'block';
+    document.getElementById('Profile-Name').innerText = data.userName
+}
+
+loadUser();
 
 
 input.addEventListener('keydown', (event) => {

@@ -4,15 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../global.css">
-    <title>🐂Bulls & 🐄Cows</title>
+    <title>🐂 Bulls & 🐄 Cows</title>
 </head>
+
 <body>
-    <h1>
-        🐂Bulls & 🐄Cows
-    </h1>
-    <h3>Instructions</h3>
-    <div class="instructions-js"></div>
-    <button id="start-game">Start Game</button>
+
+    <h1>🐂 Bulls & 🐄 Cows</h1>
+
+    <div id="loggedOut">
+        <a href="../Auth/logIn.html">Login</a>
+        <a href="../Auth/register.html">Register</a>
+    </div>
+
+    <div id="loggedIn">
+        <a href="../profile.html" id="Profile-Name">Profile</a>
+    </div>
+
+    <main class="rules-container">
+
+        <h2>Game Instructions</h2>
+
+        <div class="instructions-js"></div>
+
+        <button id="start-game" class="primary-button">
+            Start Game
+        </button>
+
+    </main>
+
     <script src="gameRules.js"></script>
+
 </body>
 </html>

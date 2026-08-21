@@ -4,7 +4,15 @@ unratedButton.addEventListener('click', () => {
 });
 
 ratedButton = document.getElementById('rated');
-ratedButton.addEventListener('click', () => {
+ratedButton.addEventListener('click', async () => {
+    const response = await fetch('/me');
+
+    const data = await response.json();
+    
+    if (!data.loggedIn) {
+        window.location.href = '/Auth/login.html';
+        return;
+    }
     window.location.href = 'Rated/rated.html';
 });
 
@@ -26,35 +34,20 @@ logoutBtn.addEventListener('click' , async () => {
 async function loadUser() {
 
     const response = await fetch('/me');
-
-    const loggedOut = document.getElementById('loggedOut');
+    const loggedOut = document.getElementById('loggedOut')
     const loggedIn = document.getElementById('loggedIn');
 
-    if (!response.ok) {
+    
+    const data = await response.json();
+    
+    if (!data.loggedIn) {
         loggedOut.style.display = 'block';
         loggedIn.style.display = 'none';
         return;
     }
-
-    const data = await response.json();
-
     loggedOut.style.display = 'none';
     loggedIn.style.display = 'block';
-
-    document.getElementById('welcome').textContent =
-        `Welcome, ${data.userName}`;
-
-    document.getElementById('level').textContent =
-        `Level: ${data.level}`;
-
-    document.getElementById('points').textContent =
-        `Points: ${data.points}`;
-
-    document.getElementById('gamesPlayed').textContent =
-        `Games Played: ${data.gamesPlayed}`;
-
-    document.getElementById('gamesWon').textContent =
-        `Games Won: ${data.gamesWon}`;
+    document.getElementById('Profile-Name').innerText = data.userName
 }
 
 loadUser();

@@ -1,32 +1,1010 @@
-body {
+/* =========================
+   GLOBAL / HOME PAGE
+   ========================= */
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* =========================
+   TITLE
+   ========================= */
+
+h1 {
+    margin-top: 45px;
+    margin-bottom: 35px;
+
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+
     text-align: center;
+}
+
+/* =========================
+   LOGIN / REGISTER AREA
+   ========================= */
+
+#loggedOut,
+#loggedIn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    margin-bottom: 45px;
+}
+
+#loggedOut a,
+#loggedIn a {
+    color: #cbd5e1;
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    padding: 9px 18px;
+    border-radius: 8px;
+
+    transition: 0.2s ease;
+}
+
+#loggedOut a:hover,
+#loggedIn a:hover {
+    color: #ffffff;
+    background: #1e293b;
+}
+
+/* =========================
+   GAME MODE BUTTONS
+   ========================= */
+
+#unrated,
+#rated {
+    width: min(420px, 90vw);
+    height: 110px;
+
+    margin: 10px 0;
+
+    border: 1px solid #334155;
+    border-radius: 16px;
+
+    background: #1e293b;
+    color: #f8fafc;
+
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#unrated:hover,
+#rated:hover {
+    transform: translateY(-4px);
+
+    background: #263449;
+    border-color: #64748b;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+#unrated:active,
+#rated:active {
+    transform: translateY(-1px);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #loggedOut,
+    #loggedIn {
+        gap: 8px;
+        margin-bottom: 35px;
+    }
+
+    #loggedOut a,
+    #loggedIn a {
+        font-size: 0.9rem;
+        padding: 8px 13px;
+    }
+
+    #unrated,
+    #rated {
+        width: 90vw;
+        height: 90px;
+    }
+}
+
+
+/* =========================
+   PROFILE PAGE
+   ========================= */
+
+.profile-container {
+    width: min(800px, 92vw);
+    margin-top: 20px;
+}
+
+/* Profile heading */
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.profile-header h2 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.profile-subtitle {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+/* Stats */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.stat-card {
+    min-height: 150px;
+
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: #64748b;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.stat-label {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.stat-value {
+    color: #f8fafc;
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+/* =========================
+   PROFILE MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .profile-container {
+        width: 94vw;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .stat-card {
+        min-height: 120px;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+}
+
+
+/* =========================
+   AUTH PAGES
+   ========================= */
+
+.auth-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 20px;
-    background-color: hsl(243, 86%, 8%);
-    color: white;
-    text-shadow: 0px 0px 20px rgb(255, 143, 143);
 }
 
-h1{
-    font-size: 40px;
-    margin: 0px;
+.auth-card {
+    width: min(420px, 92vw);
+
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 18px;
+
+    padding: 40px 35px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
-button{
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    background-color: hsl(0, 100%, 78%);
-    font-weight: bold;
-    color: white;
-    margin-top: 10px;
+.auth-card h1 {
+    margin: 0 0 8px;
+
+    font-size: clamp(2rem, 7vw, 2.8rem);
+    letter-spacing: -1.5px;
+}
+
+.auth-subtitle {
+    color: #94a3b8;
+    text-align: center;
+
     margin-bottom: 30px;
-    transition: 0.3s ease;  
+    font-size: 1rem;
 }
 
-button:hover{
-    background-color: hsl(0, 100%, 76%);
-    box-shadow: 2px 2px 5px white;
+/* Form */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-form input {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 16px;
+
+    border: 1px solid #475569;
+    border-radius: 10px;
+
+    background: #0f172a;
+    color: #f8fafc;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.auth-form input::placeholder {
+    color: #64748b;
+}
+
+.auth-form input:focus {
+    border-color: #94a3b8;
+    box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.12);
+}
+
+/* Login button */
+
+#SubmitBtn {
+    width: 100%;
+    height: 52px;
+
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #f8fafc;
+    color: #0f172a;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#SubmitBtn:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+#SubmitBtn:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+
+.auth-footer {
+    text-align: center;
+
+    margin-top: 28px;
+    padding-top: 22px;
+
+    border-top: 1px solid #334155;
+}
+
+.auth-footer p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+
+    margin-bottom: 8px;
+}
+
+.auth-footer a {
+    color: #f8fafc;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.auth-footer a:hover {
+    color: #cbd5e1;
+}
+
+/* =========================
+   AUTH MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .auth-card {
+        padding: 32px 22px;
+        border-radius: 15px;
+    }
+
+    .auth-card h1 {
+        font-size: 2rem;
+    }
+}
+
+
+
+/* =========================
+   GAME MODE SELECTION
+   ========================= */
+
+.game-modes-container {
+    width: min(850px, 94vw);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.game-modes-container h1 {
+    margin-top: 35px;
+    margin-bottom: 8px;
+}
+
+.mode-subtitle {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Difficulty grid */
+
+.difficulty-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+/* Difficulty cards */
+
+.difficulty-card {
+    min-height: 130px;
+
+    padding: 25px;
+
+    border: 1px solid #334155;
+    border-radius: 16px;
+
+    background: #1e293b;
+    color: #f8fafc;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.difficulty-card:hover {
+    transform: translateY(-5px);
+
+    background: #263449;
+    border-color: #64748b;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.difficulty-card:active {
+    transform: translateY(-1px);
+}
+
+/* Difficulty name */
+
+.difficulty-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* Reward */
+
+.difficulty-reward {
+    color: #fbbf24;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Make Expert span both columns */
+
+#expertMode {
+    grid-column: 1 / -1;
+    width: calc(50% - 9px);
+    justify-self: center;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .game-modes-container h1 {
+        margin-top: 25px;
+    }
+
+    .mode-subtitle {
+        margin-bottom: 28px;
+    }
+
+    .difficulty-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    #expertMode {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .difficulty-card {
+        min-height: 105px;
+    }
+}
+
+
+/* =========================
+   RATED GAME INSTRUCTIONS
+   ========================= */
+
+.rated-container {
+    width: min(900px, 94vw);
+    margin: 0 auto;
+    padding: 20px 0 40px;
+    text-align: center;
+}
+
+.rated-container h1 {
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.rated-subtitle {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+}
+
+/* =========================
+   INSTRUCTIONS
+   ========================= */
+
+.instructions-card {
+    text-align: left;
+
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+
+    padding: 28px 32px;
+    margin-bottom: 30px;
+}
+
+.instructions-card h2,
+.difficulty-table-container h2 {
+    text-align: center;
+
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.instructions-card ol {
+    margin: 0;
+    padding-left: 25px;
+}
+
+.instructions-card li {
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.instructions-card li:last-child {
+    margin-bottom: 0;
+}
+
+.instructions-card strong {
+    color: #f8fafc;
+}
+
+/* =========================
+   DIFFICULTY TABLE
+   ========================= */
+
+.difficulty-table-container {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+
+    padding: 25px 25px 30px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.difficulty-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+
+    color: #e2e8f0;
+}
+
+.difficulty-table-container th,
+.difficulty-table-container td {
+    padding: 14px 16px;
+    text-align: center;
+
+    border-bottom: 1px solid #334155;
+}
+
+.difficulty-table-container th {
+    background: #0f172a;
+    color: #f8fafc;
+
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.difficulty-table-container td {
+    font-size: 0.95rem;
+}
+
+.difficulty-table-container tbody tr {
+    transition: background 0.2s ease;
+}
+
+.difficulty-table-container tbody tr:hover {
+    background: #263449;
+}
+
+.difficulty-table-container tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Highlight points */
+
+.difficulty-table-container td:last-child {
+    font-weight: 700;
+    color: #fbbf24;
+}
+
+/* =========================
+   GET STARTED BUTTON
+   ========================= */
+
+.primary-button {
+    width: min(280px, 85vw);
+    height: 55px;
+
+    margin-top: 30px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #f8fafc;
+    color: #0f172a;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-button:hover {
+    background: #e2e8f0;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.primary-button:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .rated-container {
+        width: 94vw;
+        padding-top: 10px;
+    }
+
+    .instructions-card {
+        padding: 22px 20px;
+    }
+
+    .instructions-card li {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .difficulty-table-container {
+        padding: 20px 12px 25px;
+    }
+
+    .difficulty-table-container th,
+    .difficulty-table-container td {
+        padding: 12px 9px;
+        font-size: 0.85rem;
+    }
+
+    .difficulty-table-container th {
+        font-size: 0.72rem;
+    }
+
+    .primary-button {
+        width: 90%;
+    }
+}
+
+
+/* =========================
+   GAME RULES / INSTRUCTIONS
+   ========================= */
+
+.rules-container {
+    width: min(800px, 94vw);
+    margin: 30px auto 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rules-container h2 {
+    margin-bottom: 25px;
+
+    font-size: 1.7rem;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+/* Dynamic instructions */
+
+.instructions-js {
+    width: 100%;
+
+    padding: 28px 32px;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+    border-radius: 16px;
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/*
+   These handle the most common elements
+   your gameRules.js might generate.
+*/
+
+.instructions-js p {
+    margin-bottom: 12px;
+}
+
+.instructions-js p:last-child {
+    margin-bottom: 0;
+}
+
+.instructions-js strong,
+.instructions-js b {
+    color: #f8fafc;
+}
+
+.instructions-js ul,
+.instructions-js ol {
+    padding-left: 25px;
+}
+
+.instructions-js li {
+    margin-bottom: 10px;
+}
+
+.instructions-js li:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================
+   START GAME
+   ========================= */
+
+.primary-button {
+    width: min(280px, 85vw);
+    height: 55px;
+
+    margin-top: 30px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #f8fafc;
+    color: #0f172a;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-button:hover {
+    background: #e2e8f0;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.primary-button:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .rules-container {
+        width: 94vw;
+        margin-top: 20px;
+    }
+
+    .rules-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .instructions-js {
+        padding: 22px 20px;
+
+        font-size: 0.92rem;
+    }
+
+    .primary-button {
+        width: 90%;
+    }
+}
+
+
+
+/* =========================
+   UNRATED MODE SELECTION
+   ========================= */
+
+.unrated-container {
+    width: min(850px, 94vw);
+
+    margin: 25px auto 50px;
+
+    text-align: center;
+}
+
+.unrated-container h2 {
+    margin-bottom: 8px;
+
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.mode-subtitle {
+    color: #94a3b8;
+
+    font-size: 1rem;
+
+    margin-bottom: 35px;
+}
+
+/* =========================
+   MODE CARDS
+   ========================= */
+
+.unrated-modes {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.unrated-mode-card {
+    min-height: 240px;
+
+    padding: 30px 25px;
+
+    border: 1px solid #334155;
+    border-radius: 18px;
+
+    background: #1e293b;
+    color: #f8fafc;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.unrated-mode-card:hover {
+    transform: translateY(-6px);
+
+    background: #263449;
+
+    border-color: #64748b;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.unrated-mode-card:active {
+    transform: translateY(-2px);
+}
+
+/* Icon */
+
+.mode-icon {
+    font-size: 3rem;
+
+    margin-bottom: 18px;
+}
+
+/* Name */
+
+.mode-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+/* Description */
+
+.mode-description {
+    max-width: 260px;
+
+    color: #94a3b8;
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 650px) {
+
+    .unrated-container {
+        width: 94vw;
+    }
+
+    .unrated-modes {
+        grid-template-columns: 1fr;
+    }
+
+    .unrated-mode-card {
+        min-height: 190px;
+    }
 }

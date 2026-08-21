@@ -6,6 +6,7 @@ let triesLeft = document.querySelector('.tries-left');
 let recordLog = document.querySelector('.record-log');
 let timerElement = document.querySelector('.timer');
 let gameType = localStorage.getItem('gameType');
+document.querySelector('.gameMode').innerHTML = `<h2>${gameType}<\h2>`;
 
 let cnt , points;
 if(gameType === 'easy'){
@@ -314,6 +315,28 @@ giveUpButton.addEventListener('click', () => {
     restartGame();
 
 });
+
+
+async function loadUser() {
+
+    const response = await fetch('/me');
+    const loggedOut = document.getElementById('loggedOut')
+    const loggedIn = document.getElementById('loggedIn');
+
+    
+    const data = await response.json();
+    
+    if (!data.loggedIn) {
+        loggedOut.style.display = 'block';
+        loggedIn.style.display = 'none';
+        return;
+    }
+    loggedOut.style.display = 'none';
+    loggedIn.style.display = 'block';
+    document.getElementById('Profile-Name').innerText = data.userName
+}
+
+loadUser();
 
 
 input.addEventListener('keydown', (event) => {

@@ -3,37 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulls🐂 & Cows🐄</title>
+    <title>Choose Difficulty | Bulls & Cows</title>
     <link rel="stylesheet" href="../global.css">
-    <style>
-        h1{
-            margin-bottom: 60px;
-        }
-        button{
-            margin-left: 100px;
-            margin-right: 100px;
-            margin-top: 20px;
-            width: 250px;
-            height: 70px;
-            font-size : 20px;
-        }
-    </style>
 </head>
+
 <body>
-    <h1>
-        🐂Bulls & 🐄Cows
-    </h1>
-    <div>
-        <button id="easyMode">Novice 🪙20</button>
-        <button id="mediumMode">Beginner 🪙40</button>
-    </div>
-    <div>
-        <button id="hardMode">Intermediate 🪙60</button>
-        <button id="veryHardMode">Advanced 🪙80</button>
-    </div>
-    <div>
-        <button id="expertMode">Expert 🪙100</button>
-    </div>
+
+    
+    <main class="game-modes-container">
+        
+        <h1>🐂 Bulls & Cows 🐄</h1>
+        <div id="loggedOut">
+            <a href="../Auth/logIn.html">Login</a>
+            <a href="../Auth/register.html">Register</a>
+        </div>
+    
+        <div id="loggedIn">
+            <a href="../profile.html" id="Profile-Name">Profile</a>
+        </div>
+        <p class="mode-subtitle">Choose your difficulty</p>
+
+        <div class="difficulty-grid">
+
+            <button id="easyMode" class="difficulty-card">
+                <span class="difficulty-name">Novice</span>
+                <span class="difficulty-reward">🪙 20</span>
+            </button>
+
+            <button id="mediumMode" class="difficulty-card">
+                <span class="difficulty-name">Beginner</span>
+                <span class="difficulty-reward">🪙 40</span>
+            </button>
+
+            <button id="hardMode" class="difficulty-card">
+                <span class="difficulty-name">Intermediate</span>
+                <span class="difficulty-reward">🪙 60</span>
+            </button>
+
+            <button id="veryHardMode" class="difficulty-card">
+                <span class="difficulty-name">Advanced</span>
+                <span class="difficulty-reward">🪙 80</span>
+            </button>
+
+            <button id="expertMode" class="difficulty-card">
+                <span class="difficulty-name">Expert</span>
+                <span class="difficulty-reward">🪙 100</span>
+            </button>
+
+        </div>
+
+    </main>
+
     <script src="gameModes.js"></script>
+
 </body>
 </html>

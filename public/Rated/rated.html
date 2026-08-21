@@ -3,94 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulls🐂 & Cows🐄</title>
+    <title>Rated Game | Bulls & Cows</title>
     <link rel="stylesheet" href="../global.css">
-    <style>
-        button{
-            margin: 10px;
-            margin-top: 20px;
-            width: 200px;
-            height: 50px;
-            font-size : 20px;
-        }
-
-        table {
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 80%; /* Controls how much space the entire table takes up */
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #4a4a4a; /* Darker border color for a visible grid */
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: hsl(243, 86%, 5%);
-            font-weight: bold;
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: hsl(243, 86%, 10%);
-        }
-
-        tbody tr:nth-child(odd) {
-            background-color: hsl(243, 86%, 12%);
-        }
-    </style>
 </head>
+
 <body>
-    <h1>
-        🐂Bulls & 🐄Cows
-    </h1>
-    <h3>Instructions</h3>
-    <p>1. Choose a <b>class</b> based on your preferred difficulty level.</p>
-    <p>2. Guess the <b>4-digit secret number</b> with no repeated digits or leading 0.</p>
-    <p>3. <b>Bull</b>: correct digit in the correct position; <b>Cow</b>: correct digit in the wrong position.</p>
-    <p>4. Complete the game within the <b>attempt and time limit</b> of your selected class.</p>
-    <p>5. <b>Earn points based on your selected class</b> and try to achieve the highest score. 🏆</p>
-    <table>
-        <tr>
-            <th>Class</th>
-            <th>Attempts</th>
-            <th>Time</th>
-            <th>Points</th>
-        </tr>
-        <tr>
-            <td>Novice</td>
-            <td>15</td>
-            <td>02:00</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td>Beginner</td>
-            <td>12</td>
-            <td>01:30</td>
-            <td>40</td>
-        </tr>
-        <tr>
-            <td>Intermediate</td>
-            <td>10</td>
-            <td>01:00</td>
-            <td>60</td>
-        </tr>
-        <tr>
-            <td>Advanced</td>
-            <td>7</td>
-            <td>00:50</td>
-            <td>80</td>
-        </tr>
-        <tr>
-            <td>Expert</td>
-            <td>7</td>
-            <td>00:45</td>
-            <td>100</td>
-        </tr>
-    </table>
-    <button id="getStarted">Get Started</button>
+
+    
+    <main class="rated-container">
+        
+        <h1>🐂 Bulls & Cows 🐄</h1>
+        <div id="loggedOut">
+            <a href="../Auth/logIn.html">Login</a>
+            <a href="../Auth/register.html">Register</a>
+        </div>
+    
+        <div id="loggedIn">
+            <a href="../profile.html" id="Profile-Name">Profile</a>
+        </div>
+        <p class="rated-subtitle">Rated Game</p>
+
+        <section class="instructions-card">
+
+            <h2>How to Play</h2>
+
+            <ol>
+                <li>Choose a <strong>class</strong> based on your preferred difficulty level.</li>
+                <li>Guess the <strong>4-digit secret number</strong> with no repeated digits or leading 0.</li>
+                <li><strong>Bull:</strong> correct digit in the correct position. <strong>Cow:</strong> correct digit in the wrong position.</li>
+                <li>Complete the game within the <strong>attempt and time limit</strong> of your selected class.</li>
+                <li><strong>Earn points based on your selected class</strong> and try to achieve the highest score. 🏆</li>
+            </ol>
+
+        </section>
+
+        <section class="difficulty-table-container">
+
+            <h2>Difficulty Classes</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Attempts</th>
+                            <th>Time</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Novice</td>
+                            <td>15</td>
+                            <td>02:00</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Beginner</td>
+                            <td>12</td>
+                            <td>01:30</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Intermediate</td>
+                            <td>10</td>
+                            <td>01:00</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced</td>
+                            <td>7</td>
+                            <td>00:50</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Expert</td>
+                            <td>7</td>
+                            <td>00:45</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <button id="getStarted" class="primary-button">Get Started</button>
+
+    </main>
+
     <script src="rated.js"></script>
+
 </body>
-</html>
+</html> 

@@ -1,53 +1,343 @@
-#guessInput {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-    background-color: hsl(0, 0%, 100%);
-}
-
-#feedback {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-.game-container {
-    flex: 4;
-    position: relative;
-    bottom: 0;
-    top: 0;
-    left: 0;
-}
-.record-log {
-    display: none;
-    flex: 3;
-    position: relative;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    font-weight: bold;
-    margin-top: -50px;
-}
+/* =========================
+   UNRATED GAME
+   ========================= */
 
 .game-wrapper {
+    width: min(1050px, 94vw);
+
+    margin: 25px auto 50px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+
+    gap: 22px;
+
+    align-items: stretch;
+}
+
+/* =========================
+   MAIN GAME
+   ========================= */
+
+.game-container {
+    background: #1e293b;
+
+    border: 1px solid #334155;
+    border-radius: 18px;
+
+    padding: 35px 30px;
+
+    min-height: 500px;
+
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
-.tries-left{
-    font-size: 40px;
+/* =========================
+   TIMER
+   ========================= */
+
+.timer {
+    width: min(350px, 90%);
+
+    padding: 15px 20px;
+
+    margin: 10px 0 45px;
+
+    border-radius: 12px;
+
+    background: #0f172a;
+    border: 1px solid #334155;
+
+    color: #f8fafc;
+
+    text-align: center;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    letter-spacing: 1px;
 }
 
-.timer{
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 20px;    
+/* =========================
+   GUESS SECTION
+   ========================= */
+
+.guess-section {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 13px;
+}
+
+#guessInput {
+    width: min(400px, 90%);
+
+    height: 60px;
+
+    padding: 0 20px;
+
+    border: 1px solid #475569;
+    border-radius: 12px;
+
+    background: #0f172a;
+    color: #f8fafc;
+
+    text-align: center;
+
+    font-size: 1.25rem;
+    letter-spacing: 5px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#guessInput::placeholder {
+    color: #64748b;
+    letter-spacing: 0;
+}
+
+#guessInput:focus {
+    border-color: #94a3b8;
+
+    box-shadow:
+        0 0 0 3px rgba(148, 163, 184, 0.12);
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+#submitGuess,
+#giveUp {
+    width: min(400px, 90%);
+    height: 52px;
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Submit */
+
+.submit-button {
+    border: none;
+
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.submit-button:hover {
+    background: #e2e8f0;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Give up */
+
+.give-up-button {
+    border: 1px solid #475569;
+
+    background: transparent;
+    color: #cbd5e1;
+}
+
+.give-up-button:hover {
+    background: #334155;
+
+    transform: translateY(-2px);
+}
+
+#submitGuess:active,
+#giveUp:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   FEEDBACK
+   ========================= */
+
+#feedback {
+    width: 100%;
+
+    min-height: 70px;
+
+    margin-top: 30px;
+    padding: 15px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    color: #e2e8f0;
+
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* =========================
+   RECORD LOG
+   ========================= */
+
+.record-log {
+    background: #1e293b;
+
+    border: 1px solid #334155;
+    border-radius: 18px;
+
+    padding: 25px;
+
+    min-height: 500px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Attempts remaining */
+
+.tries-left {
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    background: #0f172a;
+    border: 1px solid #334155;
+
+    color: #f8fafc;
+
+    text-align: center;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+/* =========================
+   GUESS HISTORY
+   ========================= */
+
+.bulls-and-cows {
+    flex: 1;
+    overflow-y: auto;
+    color: #cbd5e1;
+
+    padding-right: 5px;
+}
+
+/* Individual guess */
+
+.bulls-and-cows p {
+    margin: 0 0 9px;
+    padding: 13px 15px;
+
+    border-radius: 9px;
+
+    background: #0f172a;
+    border: 1px solid #334155;
+
+    color: #e2e8f0;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.bulls-and-cows p:hover {
+    background: #263449;
+    transform: translateX(2px);
+}
+
+/* =========================
+   SCROLLBAR
+   ========================= */
+
+.bulls-and-cows::-webkit-scrollbar {
+    width: 6px;
+}
+
+.bulls-and-cows::-webkit-scrollbar-track {
+    background: #0f172a;
+    border-radius: 10px;
+}
+
+.bulls-and-cows::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 10px;
+}
+
+.bulls-and-cows::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 750px) {
+
+    .game-wrapper {
+        grid-template-columns: 1fr;
+
+        width: 94vw;
+
+        margin-top: 15px;
+    }
+
+    .game-container {
+        min-height: auto;
+
+        padding: 25px 18px;
+    }
+
+    .record-log {
+        min-height: 300px;
+
+        padding: 20px;
+    }
+
+    .timer {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .game-container {
+        padding: 20px 14px;
+    }
+
+    #guessInput {
+        height: 55px;
+        font-size: 1.1rem;
+    }
+
+    #submitGuess,
+    #giveUp {
+        height: 48px;
+    }
 }

@@ -31,7 +31,7 @@ function requireLogin(req , res , next){
 
 function getLevel(points , gamesPlayed){
     if(gamesPlayed === 0) return 0;
-    return Number((points/(gamesPlayed*20)).toFixed(1));
+    return Number((points/(gamesPlayed*20)).toFixed(2));
 }
 
 function calculatePoints(difficulty , won){

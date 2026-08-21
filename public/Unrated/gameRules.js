@@ -17,6 +17,30 @@ if(gameMode == 'untimed'){
     <p>6. The player wins by guessing the secret number correctly <b>(4 Bulls)</b>. The game ends when the player wins, runs out of attempts, or the timer expires.</p>`;
 }
 
+
+
+
+async function loadUser() {
+
+    const response = await fetch('/me');
+    const loggedOut = document.getElementById('loggedOut')
+    const loggedIn = document.getElementById('loggedIn');
+
+    
+    const data = await response.json();
+    
+    if (!data.loggedIn) {
+        loggedOut.style.display = 'block';
+        loggedIn.style.display = 'none';
+        return;
+    }
+    loggedOut.style.display = 'none';
+    loggedIn.style.display = 'block';
+    document.getElementById('Profile-Name').innerText = data.userName
+}
+
+loadUser();
+
 startButton.addEventListener('click' , () => {
     window.location.href = 'game.html';
 });
