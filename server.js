@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+require('dotenv').config();
 const mongoose = require('mongoose');
 const session = require('express-session');
 const path = require('path');
@@ -204,10 +205,10 @@ app.post('/game/result', requireLogin, async (req, res) => {
 
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/Bulls_and_Cows')
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Connected to MongoDB');
-        app.listen(PORT , () =>{
+        app.listen(process.env.PORT || 3000 , () =>{
             console.log('Listning on Port 3000');
         })
     })
